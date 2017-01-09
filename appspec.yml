@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+   - source: /helloapp
+     destination: /home/ec2-user/sources/helloapp
+hooks:
+   BeforeInstall:
+    - location: scripts/clean_sources.sh
+   AfterInstall:
+    - location: scripts/setting_environment.sh
+   ApplicationStart:   
+    - location: scripts/run_server.sh
